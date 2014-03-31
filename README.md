@@ -1,2 +1,2 @@
-docker-node-ser
+docker-node-serf
 ===============
