@@ -1,0 +1,20 @@
+{
+  "name": "event-handler",
+  "version": "0.1.0",
+  "description": "Event handler for Serf",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "serf",
+    "event",
+    "event handler"
+  ],
+  "dependencies": {
+    "serf-event-handler": "~0.1.0",
+    "lazy": "~1.0.11",
+    "underscore": "~1.6.0"
+  }
+}

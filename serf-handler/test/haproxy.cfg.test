@@ -1,0 +1,33 @@
+global
+  log /dev/log local0 info
+  log /dev/log local0 notice
+  maxconn 1024
+  user haproxy
+  group haproxy
+
+defaults
+  log global
+  mode http
+  option httpclose
+  option httplog
+  option dontlognull
+  option redispatch
+  option forwardfor
+  option httpchk
+  timeout connect 5s
+  timeout client 50s
+  timeout server 50s
+  balance roundrobin
+
+frontend http
+  bind 0.0.0.0:80
+  default_backend application
+
+backend application
+   server test1 10.0.0.1 check 
+  server test2 10.0.0.2 check 
+ 
+  
+listen  admin 0.0.0.0:8080
+        stats enable
+        stats uri /

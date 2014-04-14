@@ -7,13 +7,17 @@ RUN apt-get -y install python-software-properties python g++ make software-prope
 RUN add-apt-repository ppa:chris-lea/node.js && apt-get update
 
 # Tools
-RUN apt-get -y install nano && apt-get -y install wget && apt-get -y install unzip
+RUN apt-get -y install nano wget unzip git
 
 # Serf
 ADD https://dl.bintray.com/mitchellh/serf/0.5.0_linux_amd64.zip serf0.5.zip
 RUN unzip serf0.5.zip
 RUN mv serf /usr/bin/
 EXPOSE 7946/udp 7946/tcp
+
+# Serf handler
+ADD ./serf-handler /serf-handler
+RUN cd /serf-handler && npm install
 
 # Supervisor
 RUN apt-get install -y supervisor
